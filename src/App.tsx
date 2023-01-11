@@ -1,22 +1,24 @@
-import React from 'react';
+import React from "react";
 import AppHeader from "./components/app-header/app-header";
-import './App.css';
+import "./App.css";
 
-import BurgerConstructor from "./components/burger-constructor/burger-constructor";
-import BurgerIngredients from "./components/burger-ingredients/burger-ingredients";
+import BurgerConstructor from './components/burger-constructor/burger-constructor';
+import BurgerIngredients from './components/burger-ingredients/burger-ingredients';
+import ReadData from "./utils/read-data";
 
 function App() {
+    let data=ReadData();
     return (
-        <div className="App pt-10 pl-10">
-            <header className="App-header mr-10">
+        <div className='App'>
+            <header className='App-header'>
                 <AppHeader/>
             </header>
             <main>
-                <div className={"section mr-10"}>
-                    <BurgerConstructor/>
+                <div className={'section01 mr-10'}>
+                    <BurgerConstructor data={data}/>
                 </div>
-                <div className={"section"}>
-                    <BurgerIngredients/>
+                <div className={'section02'}>
+                    <BurgerIngredients data={data}/>
                 </div>
             </main>
         </div>

@@ -6,14 +6,20 @@ background: #131316;
   color: #61dafb;
 }
 
+
 main{
   display: flex;
+  min-width: 1240px;
+  height: calc(100vh - 150px);
   justify-content: center;
-  margin-right: 40px;
+  padding-top: 40px;
 }
 
-.section{
+.section01{
   width: 600px;
-  height: 912px;
-  background: #61dafb;
+  height: 100%;
+}
+.section02{
+  width: 600px;
+  height: calc(100vh - 148px);
 }
