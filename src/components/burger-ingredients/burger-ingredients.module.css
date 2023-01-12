@@ -1,0 +1,60 @@
+.section{
+    display: flex;
+    position: relative;
+    justify-content: right;
+    background: #131316;
+    height: calc(100% - 100px);
+    padding-top: 100px;
+}
+
+.bun{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin-right: 8px;
+
+}
+
+.ingredients{
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 156px);
+    padding-left: 16px;
+    gap: 10px;
+}
+
+.pieces{
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    overflow-x:hidden;
+    padding-left: 16px;
+    gap: 10px;
+}
+.part{
+    height: 100px;
+    color: #61dafb;
+}
+
+.button{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:40px;
+    bottom: 52px;
+    right: 16px;
+}
+
+.icon > svg{
+    width: 33px;
+    height: 33px;
+}
+
+.total{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:4px
+}
