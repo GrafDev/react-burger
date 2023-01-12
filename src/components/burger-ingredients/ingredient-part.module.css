@@ -5,14 +5,15 @@
     justify-content: right;
     margin-right: 16px;
 }
+
 .icon{
     padding-right: 16px;
 }
+
 .icon > svg{
     width: 32px;
 }
-.zero{
-    composes: icon;
-    width: 32px;
 
+.zero{
+    padding-right: 64px;
 }
