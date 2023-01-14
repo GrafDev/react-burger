@@ -1,0 +1,6 @@
+.carts {
+    display: flex;
+    row-gap: 24px;
+    flex-wrap: wrap;
+}
+
