@@ -7,29 +7,29 @@ function AppHeader(){
 return (
     <div className={styles.header}>
         <nav className={styles.nav}>
-            <div className={styles.item}>
+            <a href={''} className={styles.item}>
                 <div className={styles.icon}>
                     <BurgerIcon type={'primary'}/>
                 </div>
                 <span className={activeDefault} >Конструктор</span>
-            </div>
-            <div className={styles.item}>
+            </a>
+            <a href={''} className={styles.item}>
                 <div className={styles.icon}>
                     <ListIcon type={'secondary'}/>
                 </div>
                 <span className={inactiveDefault} >Лента заказов</span>
-            </div>
+            </a>
 
         </nav>
         <div className={styles.logo}>
             <Logo />
         </div>
-        <div className={styles.user}>
+        <a href={''} className={styles.user}>
             <div className={styles.icon}>
                 <ProfileIcon  type={'secondary'}/>
             </div>
             <span className={inactiveDefault} >Личный кабинет</span>
-        </div>
+        </a>
     </div>
 
 

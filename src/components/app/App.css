@@ -1,6 +1,9 @@
 .App {
 background: #131316;
 }
+a{
+  all: unset;
+}
 
 .App-link {
   color: #61dafb;
