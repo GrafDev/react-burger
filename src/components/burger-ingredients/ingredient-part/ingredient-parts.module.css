@@ -4,6 +4,10 @@
     align-items: center;
     justify-content: right;
     margin-right: 16px;
+
+}
+.box:hover{
+
 }
 
 .icon{
@@ -16,4 +20,7 @@
 
 .zero{
     padding-right: 64px;
+}
+.box:hover{
+    --background-element: #3e3e47;
 }

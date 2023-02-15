@@ -5,6 +5,8 @@
     background: #131316;
     height: calc(100% - 100px);
     padding-top: 100px;
+    /*-moz-user-select: none;*/
+    /*user-select: none;*/
 }
 
 .bun{

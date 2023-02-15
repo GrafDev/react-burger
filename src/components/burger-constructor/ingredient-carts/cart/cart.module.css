@@ -7,6 +7,12 @@
     gap: 4px;
     width: 272px;
     height: 208px;
+    border-radius: 30px;
+    /*-moz-user-select: none;*/
+    /*user-select: none;*/
+}
+.cart:hover{
+    background: rgba(48, 48, 55, 0.79);
 }
 
 .count{
@@ -28,7 +34,6 @@
     position: center;
     width: 240px;
     height: 120px;
-
 }
 
 .cost {

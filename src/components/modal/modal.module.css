@@ -1,0 +1,39 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    background: rgba(0,0,0,0.60);
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center; /* см. ниже */
+    align-items: center;
+    z-index: 99;
+    /* Чтобы окно не прилипало к границе
+    браузера установим отступы */
+    padding:30px 0;
+}
+
+.modal{
+
+    /* Установим по умолчанию ширину 600px
+    но она будет не больше ширины браузера */
+    width: 720px;
+    height: 720px;
+    max-width: 100%;
+    padding: 25px;
+    opacity: 100;
+    background: #1C1C21;
+    /* Заготовка для будущих анимаций */
+    transition: transform 0.15s ease 0s, opacity 0.15s ease 0s;
+    transform: scale(1);
+
+    border: 1px solid rgba(76, 76, 255, 0.2);
+
+    box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+    border-radius: 40px;
+}

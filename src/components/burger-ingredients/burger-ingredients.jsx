@@ -8,7 +8,7 @@ import {typeCart} from "../../utils/types";
 
 
 function BurgerIngredients(props){
-    let pieces=props.order.filter(elem=>elem.type!='bun')
+    let pieces=props.order.filter(elem=>elem.type!=='bun')
     let bun=props.order.find(elem=>elem.type==='bun')
     return(
     <div className={styles.section}>

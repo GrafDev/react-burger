@@ -5,11 +5,13 @@ import PropTypes from "prop-types";
 import {typeCart} from "../../../../utils/types";
 import styles from "./cart.module.css"
 
+
 function Cart(props) {
+	const {setIsOpenModal}=props;
 	let cart = props.cart;
 
 	return (
-		<div className={styles.cart}>
+		<div className={styles.cart} onClick={setIsOpenModal}>
 			{(props.bill>0)?<div className={`${styles.count} ${digitsDefault}`}>{props.bill}</div>:null}
 			<img src={cart.image} alt={cart.name}/>
 			<div className={styles.cost}>

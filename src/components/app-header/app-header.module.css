@@ -26,6 +26,9 @@
     margin-right: 8px;
 
 }
+.item:hover{
+    cursor: pointer ;
+}
 .item:last-child{
     margin-right: 112px;
 }
@@ -37,4 +40,8 @@
     padding: 16px 20px 16px 20px;
     margin-left: 289px;
     justify-self:  start;
+}
+
+.user:hover{
+    cursor: pointer ;
 }

@@ -5,6 +5,8 @@
 
 .title{
     margin-bottom: 20px;
+    /*-moz-user-select: none;*/
+    /*user-select: none;*/
 }
 
 .tab {
@@ -17,4 +19,3 @@
     height: calc(100% - 156px);
     padding-left: 16px;
 }
-
