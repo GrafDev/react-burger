@@ -1,10 +1,17 @@
 import {digitsMedium} from "../../../utils/themes";
 import {Button, CurrencyIcon} from "@ya.praktikum/react-developer-burger-ui-components";
-import React from "react";
+import React, {useContext} from "react";
 import PropTypes from "prop-types";
 import styles from "./total-cost.module.css"
+import Context from "../../../utils/context";
 
 function TotalCost(props) {
+
+	const value = useContext(Context);
+
+	const handleClick = ()=>{
+		value.openModal('Order');
+	}
 
 	return(
 		<div className={styles.button}>
@@ -16,7 +23,7 @@ function TotalCost(props) {
 					<CurrencyIcon type="primary"/>
 				</div>
 			</div>
-			<Button htmlType="button" type="primary" size="large" >
+			<Button htmlType="button" type="primary" size="large" onClick={handleClick}>
 				Оформить заказ
 			</Button>
 		</div>

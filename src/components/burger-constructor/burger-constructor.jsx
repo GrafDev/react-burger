@@ -11,22 +11,18 @@ import Modal from "../modal/modal";
 
 function BurgerConstructor(props) {
 
-	const {openModal}=props;
-
 	const {currentType,setCurrentType}=useState('bun');
+
+
 	let burgers = props.data;
-	console.log(burgers)
-
-	const listCarts=[]
-
 	return (
-		<div className={styles.section} onClick={openModal}>
+		<div className={styles.section}>
 			<div className={`${styles.title} ${textLarge}`}>Соберите бургер</div>
 			<div className={styles.tab}><BurgerTab current={currentType}/></div>
 			<div className={styles.ingredients}>
 				<IngredientCarts data={props.data} type={'bun'} bill={burgers} >Булки</IngredientCarts>
-				<IngredientCarts data={props.data} type={'main'} bill={burgers}>Соусы</IngredientCarts>
-				<IngredientCarts data={props.data} type={'sauce'} bill={burgers}>Начинка</IngredientCarts>
+				<IngredientCarts data={props.data} type={'main'} bill={burgers} >Соусы</IngredientCarts>
+				<IngredientCarts data={props.data} type={'sauce'} bill={burgers} >Начинка</IngredientCarts>
 			</div>
 		</div>
 	)

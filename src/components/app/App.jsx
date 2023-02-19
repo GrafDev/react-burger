@@ -5,8 +5,8 @@ import "./App.css";
 import BurgerConstructor from '../burger-constructor/burger-constructor';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import ReadData from "../../utils/read-data";
-import Modal from "../modal/modal";
 import ModalOverlay from "../modal/modal-overlay";
+import Context from "../../utils/context";
 
 
 function App() {
@@ -15,25 +15,48 @@ function App() {
 		hasError: false,
 		data: []
 	})
-	const [modalOpen,setIsModalOpen]=useState(false);
+	const [currentIngredient,setCurrentIngredient]=useState(null)
+	const [isModalOpen,setIsModalOpen]=useState(false);
+	const [isOrder,setIsOrder]=useState(false)
+	const [isIngredients,setIsIngredients]=useState(false)
+
+
+
+	const openModal =(checkModal,data)=>{
+		if (checkModal==='Order'){
+			setIsOrder(true);
+		} else if (checkModal==='Ingredients'){
+			setIsIngredients(true);
+			setCurrentIngredient(data);
+		}
+		setIsModalOpen(true);
+	}
+
+	const closeModal = ()=>{
+		setIsOrder(false)
+		setIsIngredients(false)
+		setIsModalOpen(false)
+	}
 
 	useEffect(() => {
 		ReadData(state,setState)
 	}, [])
 
-	const openModal=(event)=>{
-		setIsModalOpen(true);
+	const value ={
+		isModalOpen,
+		openModal,
+		closeModal,
+		isOrder,
+		isIngredients,
+		currentIngredient
 	}
 
-	const closeModal=(event)=>{
-		event.target.id==='modalOverlay' && setIsModalOpen(false);
-	}
 
 	const {data, isLoading, hasError} = state;
 	let order=data;
 	let total = useMemo(() => order.reduce((sum, elem) => sum + elem.price, 0), [order]);
 	return (
-		<div className='App'>
+		<Context.Provider className='App' value={value}>
 			<header className='App-header' >
 				<AppHeader />
 			</header>
@@ -44,7 +67,7 @@ function App() {
 				data.length &&
 				<main>
 					<div className={'section01 mr-10'}>
-						<BurgerConstructor data={data} openModal={setIsModalOpen}/>
+						<BurgerConstructor data={data} />
 					</div>
 					<div className={'section02'}>
 						<BurgerIngredients order={order} total={total}/>
@@ -52,21 +75,11 @@ function App() {
 				</main>
 			}
 
-			{modalOpen &&
-				<ModalOverlay open={modalOpen} onClose={closeModal}>
-					<Modal>
-						Hello
-					</Modal>
-				</ModalOverlay>
+			{isModalOpen &&
+				(<ModalOverlay />)
 			}
-
-
-		</div>
+		</Context.Provider>
 	);
-
-
-
-
 }
 
 export default App;

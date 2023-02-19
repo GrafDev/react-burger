@@ -1,14 +1,17 @@
 import './modal.module.css'
-import {useEffect, useMemo} from "react";
+import {useContext, useEffect, useMemo, useState} from "react";
 import {createPortal} from "react-dom";
 import style from './modal.module.css';
 import Modal from "./modal";
+import Context from "../../utils/context";
 
 const modalRootElement = document.getElementById('react-modals');
 
 function ModalOverlay(props) {
-	const {open, onClose} = props;
 	const element = useMemo(() => document.createElement('div'), []);
+
+	const value = useContext(Context);
+
 	useEffect(() => {
 		modalRootElement.appendChild(element);
 		return () => {
@@ -16,16 +19,19 @@ function ModalOverlay(props) {
 		};
 
 	});
-	if (open) {
-		return createPortal(
-			<div className={style.overlay} onClick={onClose} id={"modalOverlay"}>
-				<div>
-					<Modal>123</Modal>
-				</div>
-			</div>
-			, element)
+
+	const handlerClick= (event)=>{
+		event.target.id==='targetOverlay' && value.closeModal();
 	}
-	return null;
+
+	return createPortal(
+		<div className={style.overlay} id='targetOverlay' onClick={handlerClick}>
+			<div>
+				<Modal/>
+			</div>
+		</div>
+		, element)
 }
+
 
 export default ModalOverlay;
