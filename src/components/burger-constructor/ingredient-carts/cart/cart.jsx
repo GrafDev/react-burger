@@ -4,11 +4,11 @@ import React, {useContext} from "react";
 import PropTypes from "prop-types";
 import {typeCart} from "../../../../utils/types";
 import styles from "./cart.module.css"
-import Context from "../../../../utils/context";
+import context from "../../../../utils/context";
 
 function Cart(props) {
 	let cart = props.cart;
-	const value = useContext(Context);
+	const value = useContext(context);
 
 	const handleClick = ()=>{
 		value.openModal('Ingredients',cart);
