@@ -1,11 +1,9 @@
 import React, {useContext} from "react";
 import style from './ingredient-details.module.css'
-import Context from "../../utils/context";
+import Context from "../../utils/contexts";
 import {
 	digitsInactiveDefault,
-	digitsInactiveMedium,
 	inactiveDefault,
-	inactiveMedium,
 	textLarge,
 	textMedium
 } from "../../utils/themes";
@@ -32,7 +30,7 @@ function IngredientDetails() {
 					<span className={`${textLarge} ${style.text}`}>Детали ингредиента</span>
 			</div>
 			<div className={style.modal}>
-				<img className={style.image} style={{paddingBottom: '16px'}} src={data.image} alt={'image'}/>
+				<img className={style.image} style={{paddingBottom: '16px'}} src={data.image} alt={'atribute'}/>
 				<span className={textMedium} style={{paddingBottom: '32px'}}>{data.name}</span>
 				<div className={style.ingredients}>
 					{Ingredient('Калории,ккал', data.calories)}

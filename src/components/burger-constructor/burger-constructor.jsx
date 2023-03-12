@@ -10,19 +10,19 @@ import Modal from "../modal/modal";
 
 
 function BurgerConstructor(props) {
-
+	const {data}=props;
 	const {currentType,setCurrentType}=useState('bun');
 
 
-	let burgers = props.data;
+	let burgers = data;
 	return (
 		<div className={styles.section}>
 			<div className={`${styles.title} ${textLarge}`}>Соберите бургер</div>
 			<div className={styles.tab}><BurgerTab current={currentType}/></div>
 			<div className={styles.ingredients}>
-				<IngredientCarts data={props.data} type={'bun'} bill={burgers} >Булки</IngredientCarts>
-				<IngredientCarts data={props.data} type={'main'} bill={burgers} >Соусы</IngredientCarts>
-				<IngredientCarts data={props.data} type={'sauce'} bill={burgers} >Начинка</IngredientCarts>
+				<IngredientCarts data={data} type={'bun'} bill={burgers} >Булки</IngredientCarts>
+				<IngredientCarts data={data} type={'main'} bill={burgers} >Соусы</IngredientCarts>
+				<IngredientCarts data={data} type={'sauce'} bill={burgers} >Начинка</IngredientCarts>
 			</div>
 		</div>
 	)
@@ -30,8 +30,7 @@ function BurgerConstructor(props) {
 }
 
 BurgerConstructor.propTypes = {
-	data: PropTypes.arrayOf(PropTypes.shape(typeCart)),
-
+	data: PropTypes.arrayOf(PropTypes.shape(typeCart)).isRequired,
 }
 
 export default BurgerConstructor;

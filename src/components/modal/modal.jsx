@@ -2,21 +2,19 @@ import './modal.module.css'
 import style from './modal.module.css'
 import {CloseIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 import {useContext} from "react";
-import Context from "../../utils/context";
+import contexts from "../../utils/contexts";
 import OrderDetails from "../order-details/order-details";
 import IngredientDetails from "../ingredient-details/ingredient-details";
 
 
 
-function Modal(props){
+function Modal(){
 
-const value = useContext(Context);
+const value = useContext(contexts);
 
 const handlerOverlay = ()=>{
 	 value.closeModal()
 }
-
-
 	return (
 		<div className={style.modal}>
 			<div className={style.closeCross} onClick={handlerOverlay}>
@@ -30,4 +28,5 @@ const handlerOverlay = ()=>{
 		</div>
 	)
 }
+
 export default Modal;

@@ -8,11 +8,15 @@ function addCount(data){
 	})
 }
 
-function ReadData(state, setState) {
+const checkResponse = (res)=> {
+	return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
+};
+
+function readData(state, setState) {
 	const getData = async () => {
 		setState({...state, hasError: false, isLoading: true});
 		fetch(DATA)
-			.then(res => res.json())
+			.then(checkResponse)
 			.then(data => {
 				setState({...state, data: addCount(data), isLoading: false})
 			})
@@ -22,5 +26,4 @@ function ReadData(state, setState) {
 	};
 	getData().then(r => console.log('Loaded'));
 }
-
-export default ReadData;
+export default readData;

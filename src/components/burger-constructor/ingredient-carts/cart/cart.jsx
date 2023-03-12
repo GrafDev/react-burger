@@ -4,11 +4,11 @@ import React, {useContext} from "react";
 import PropTypes from "prop-types";
 import {typeCart} from "../../../../utils/types";
 import styles from "./cart.module.css"
-import context from "../../../../utils/context";
+import contexts from "../../../../utils/contexts";
 
 function Cart(props) {
-	let cart = props.cart;
-	const value = useContext(context);
+	const cart = props.cart;
+	const value = useContext(contexts);
 
 	const handleClick = ()=>{
 		value.openModal('Ingredients',cart);
@@ -35,8 +35,8 @@ function Cart(props) {
 }
 
 Cart.propTypes = {
-	bill: PropTypes.number,
-	cart: PropTypes.shape(typeCart)
+	bill: PropTypes.number.isRequired,
+	cart: PropTypes.shape(typeCart).isRequired
 }
 
 export default Cart;
