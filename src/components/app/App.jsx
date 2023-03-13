@@ -15,11 +15,13 @@ function App() {
 		hasError: false,
 		data: []
 	})
-	const [currentIngredient, setCurrentIngredient] = useState(null)
+
+	const [currentIngredient, setCurrentIngredient] = useState(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [isOrder, setIsOrder] = useState(false)
-	const [isIngredients, setIsIngredients] = useState(false)
-	const [total,setTotal]=useState(74441)
+	const [isOrder, setIsOrder] = useState(false);
+	const [isIngredients, setIsIngredients] = useState(false);
+	const [total,setTotal]=useState(74441);
+
 
 
 	const openModal = (checkModal, data) => {
@@ -41,6 +43,7 @@ function App() {
 	useEffect(() => {
 		readData(state, setState)
 	}, [])
+
 
 	const {data, isLoading, hasError} = state;
 	const order = data;

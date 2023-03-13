@@ -22,8 +22,10 @@ function ModalOverlay() {
 		event.target.id==='targetOverlay' && value.closeModal();
 	}
 
+
+
 	return createPortal(
-		<div className={style.overlay} id='targetOverlay' onClick={handlerClick}>
+		<div className={style.overlay} id='targetOverlay' onClick={handlerClick} >
 				<Modal/>
 		</div>
 		, element)
