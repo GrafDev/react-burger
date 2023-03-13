@@ -53,10 +53,10 @@ function App() {
 
 
 	const value = {
-		openModal,//
-		closeModal, //
-		currentIngredient, //
-		total//
+		openModal,
+		closeModal,
+		currentIngredient,
+		total
 	}
 
 
