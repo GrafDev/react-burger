@@ -1,12 +1,14 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import AppHeader from "../app-header/app-header";
 import style from "./App.module.css";
 
 import BurgerConstructor from '../burger-constructor/burger-constructor';
 import BurgerIngredients from '../burger-ingredients/burger-ingredients';
 import readData from "../../utils/read-data";
-import ModalOverlay from "../modal/modal-overlay";
 import contexts from "../../utils/contexts";
+import Modal from "../modal/modal";
+import OrderDetails from "../order-details/order-details";
+import IngredientDetails from "../ingredient-details/ingredient-details";
 
 
 function App() {
@@ -53,8 +55,6 @@ function App() {
 	const value = {
 		openModal,//
 		closeModal, //
-		isOrder, //
-		isIngredients, //
 		currentIngredient, //
 		total//
 	}
@@ -84,7 +84,10 @@ function App() {
 					</main>
 				}
 				{isModalOpen &&
-						(<ModalOverlay/>)
+					(<Modal>
+						{isOrder && <OrderDetails/>}
+						{isIngredients && <IngredientDetails/>}
+					</Modal>)
 				}
 			</div>
 		</contexts.Provider>

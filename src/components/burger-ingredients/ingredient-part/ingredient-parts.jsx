@@ -12,6 +12,7 @@ function IngredientParts(props){
 		else return name
 		}
 
+
 	return(
 		<div className={styles.box}>
 			{type===''? <div className={styles.icon}><DragIcon  type="primary" /></div>:<div className={styles.zero}></div>}
@@ -19,6 +20,7 @@ function IngredientParts(props){
 				text={getText(type,elem.name)}
 				type={type}
 				price={elem.price}
+				isLocked={type!==''}
 				thumbnail={elem.image_mobile}
 			/>
 		</div>

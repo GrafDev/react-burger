@@ -1,41 +1,49 @@
 import './modal.module.css'
-import style from './modal.module.css'
-import {CloseIcon} from "@ya.praktikum/react-developer-burger-ui-components";
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useMemo} from "react";
 import contexts from "../../utils/contexts";
-import OrderDetails from "../order-details/order-details";
-import IngredientDetails from "../ingredient-details/ingredient-details";
+import {createPortal} from "react-dom";
+import ModalOverlay from "./modal-overlay/modal-overlay";
+import style from "./modal.module.css";
+import {CloseIcon} from "@ya.praktikum/react-developer-burger-ui-components";
 
 
+function Modal(props) {
+	const element = useMemo(() => document.createElement('div'), []);
+	const value = useContext(contexts);
 
-function Modal(){
-
-const value = useContext(contexts);
-
-const handlerOverlay = ()=>{
-	 value.closeModal()
-}
+	const modalRootElement = document.getElementById('react-modals');
 
 	useEffect(() => {
-		const handleEscape=({key})=>{
-			if(key==='Escape') value.closeModal()
+		modalRootElement.appendChild(element);
+		return () => {
+			modalRootElement.removeChild(element);
+		};
+	});
+
+	const handlerCross= ()=>{
+		value.closeModal()
+	}
+
+	useEffect(() => {
+		const handleEscape = ({key}) => {
+			if (key === 'Escape') value.closeModal()
 		}
-		document.addEventListener('keydown',handleEscape)
-		return () => document.removeEventListener('keydown',handleEscape)
+		document.addEventListener('keydown', handleEscape)
+		return () => document.removeEventListener('keydown', handleEscape)
 	});
 
 
-	return (
-		<div className={style.modal}>
-			<div className={style.closeCross} onClick={handlerOverlay}>
-				<CloseIcon type="primary"  />
-			</div>
-			<div>
-				{value.isOrder && <OrderDetails/>}
-				{value.isIngredients && <IngredientDetails/>}
-			</div>
-		</div>
-	)
-}
 
+	return createPortal(
+		<ModalOverlay>
+			<div className={style.modal}>
+				<div className={style.closeCross} onClick={handlerCross} >
+					<CloseIcon type="primary"/>
+				</div>
+				{props.children}
+			</div>
+		</ModalOverlay>
+		, element)
+
+}
 export default Modal;
