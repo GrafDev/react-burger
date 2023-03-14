@@ -5,6 +5,7 @@ import {createPortal} from "react-dom";
 import ModalOverlay from "./modal-overlay/modal-overlay";
 import style from "./modal.module.css";
 import {CloseIcon} from "@ya.praktikum/react-developer-burger-ui-components";
+import PropTypes from "prop-types";
 
 
 function Modal(props) {
@@ -46,4 +47,8 @@ function Modal(props) {
 		, element)
 
 }
+
+Modal.propTypes = {
+	children: PropTypes.element.isRequired
+};
 export default Modal;

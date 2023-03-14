@@ -2,6 +2,7 @@ import '../modal.module.css'
 import {useContext} from "react";
 import style from './modal-overlay.module.css';
 import contexts from "../../../utils/contexts";
+import PropTypes from "prop-types";
 
 
 function ModalOverlay(props) {
@@ -18,4 +19,9 @@ function ModalOverlay(props) {
 	)
 }
 
+ModalOverlay.propTypes = {
+	children: PropTypes.element.isRequired
+};
+
 export default ModalOverlay;
+
