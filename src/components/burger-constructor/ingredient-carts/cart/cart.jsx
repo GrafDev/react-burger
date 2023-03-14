@@ -25,7 +25,7 @@ function Cart(props) {
 				<div className={styles.icons}>
 					<CurrencyIcon type="primary"/>
 				</div>
-			</div>
+			</div>//
 			<div className={styles.name}>
 				{cart.name}
 			</div>
