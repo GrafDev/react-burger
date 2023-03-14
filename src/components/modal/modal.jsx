@@ -49,6 +49,6 @@ function Modal(props) {
 }
 
 Modal.propTypes = {
-	children: PropTypes.element.isRequired
+	children: PropTypes.element.isRequired //Добавил
 };
 export default Modal;
